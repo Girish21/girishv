@@ -1,9 +1,48 @@
 ---
+import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
+import Girish from '~/assets/girish.jpg'
+
+const job = {
+  company: 'needl.ai',
+  url: 'https://www.needl.ai/',
+  role: 'Software Engineer',
+  location: 'Bangalore, India',
+  start: '2020',
+  end: 'present'
+}
 ---
 
 <Layout title="Girish V">
-  <main class="grid h-full place-content-center">
-    <h1 class="text-6xl text-slate-50">Girish</h1>
+  <main
+    class="mx-8 grid h-screen max-w-6xl grid-cols-4 gap-x-6 sm:mx-auto sm:grid-cols-12">
+    <section
+      class="col-start-1 col-end-5 flex flex-col-reverse items-center gap-16 sm:col-start-3 sm:col-end-11 sm:flex-row">
+      <div class="flex flex-col gap-4 sm:flex-1">
+        <h1 class="text-gray-100 text-title">
+          hey, i'm <span class="text-gray-400 underline">girish!</span>
+        </h1>
+        <h2 class="text-gray-200 text-subheading">
+          currently <a href={job.url} rel="noopener noreferrer" target="_blank">
+            <span class="text-gray-400">@{job.company}</span>
+          </a>
+        </h2>
+        <p class="text-gray-300 text-body">
+          I'm a passionate frontend wizard who weaves pixel-perfect spells to
+          create extraordinary user interfaces for the web. When I'm not
+          concocting UI magic, you'll find me spreading the joy of open source
+          like a coding bard, sharing my insights with the community. With a
+          touch of whimsy and a dash of technical expertise, I'm here to enchant
+          users with unforgettable experiences.
+        </p>
+      </div>
+      <div class="sm:flex-1">
+        <Image
+          class="m-0 h-60 w-60 max-w-none rounded-full object-cover object-top sm:h-80 sm:w-80"
+          src={Girish}
+          alt="cover picture of girish.v"
+        />
+      </div>
+    </section>
   </main>
 </Layout>
