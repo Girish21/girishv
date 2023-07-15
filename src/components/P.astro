@@ -1,0 +1,9 @@
+---
+import { twMerge } from '../util'
+import type { HTMLAttributes } from 'astro/types'
+const { class: pClass = '', ...props } = Astro.props
+
+export interface Props extends HTMLAttributes<'p'> {}
+---
+
+<p class={twMerge('text-gray-300 text-body', pClass)} {...props}><slot /></p>
