@@ -5,8 +5,11 @@ import Girish from '~/assets/girish.jpeg'
 import Grid from '../components/Grid.astro'
 import P from '../components/P.astro'
 import SubHeading from '../components/SubHeading.astro'
+import Heading from '../components/Heading.astro'
 import Title from '../components/Title.astro'
 import ExternalLink from '../components/ExternalLink.astro'
+import CentralSpan from '../components/CentralSpan.astro'
+import Technologies from '../components/technologies/Technologies.astro'
 
 const job = {
   company: 'needl.ai',
@@ -20,18 +23,18 @@ const job = {
 
 <Layout title="Girish V">
   <Grid Element="main">
-    <div
-      class="col-start-1 col-end-5 flex min-h-[100svh] flex-col items-center justify-center gap-16 sm:col-start-3 sm:col-end-11 sm:flex-row-reverse sm:justify-between">
-      <div class="sm:flex-1">
+    <CentralSpan
+      class="flex min-h-[100svh] flex-col items-center justify-center gap-16 md:flex-row-reverse md:justify-between">
+      <div class="pt-8 md:flex-1 md:pt-0">
         <Image
-          class="mx-auto h-60 w-60 max-w-none rounded-full object-cover object-top sm:h-80 sm:w-80"
+          class="mx-auto h-60 w-60 max-w-none rounded-full object-cover object-top md:h-80 md:w-80"
           width={500}
           height={500}
           src={Girish}
           alt="cover picture of girish.v"
         />
       </div>
-      <div class="flex flex-col gap-4 pb-6 sm:flex-1">
+      <div class="flex flex-col gap-4 md:flex-1">
         <Title>
           hey, i'm <span class="text-gray-400 underline">girish!</span>
         </Title>
@@ -49,6 +52,17 @@ const job = {
           users with unforgettable experiences.
         </P>
       </div>
-    </div>
+    </CentralSpan>
+    <CentralSpan class="flex flex-col gap-4 pt-12">
+      <Heading>favourite technologies</Heading>
+      <P>
+        Welcome to the realm of my beloved technologies, a playground of digital
+        brilliance. Whether it's JavaScript's dynamic wizardry, CSS's style
+        sorcery, or the backend sorcerer's data enchantments, together they
+        create a symphony of code that dances across the web, leaving users
+        spellbound.
+      </P>
+      <Technologies />
+    </CentralSpan>
   </Grid>
 </Layout>

@@ -1,0 +1,29 @@
+---
+import Technology from './Technology.astro'
+
+import AstroImg from '~/assets/astro.svg'
+import Node from '~/assets/nodejs.svg'
+import JavaScript from '~/assets/javascript_round.svg'
+import TypeScript from '~/assets/typescript.svg'
+import React from '~/assets/react.svg'
+import Remix from '~/assets/remix.png'
+import Solid from '~/assets/solidjs.svg'
+
+const technologies = [
+  { label: 'javascript', image: JavaScript },
+  { label: 'typescript', image: TypeScript },
+  { label: 'react', image: React },
+  { label: 'remix', image: Remix },
+  { label: 'node.js', image: Node },
+  { label: 'solid.js', image: Solid },
+  { label: 'astro', image: AstroImg }
+]
+---
+
+<ul class="grid grid-cols-1 gap-y-4 md:grid-cols-2">
+  {
+    technologies.map(({ label, image }) => (
+      <Technology image={image} label={label} />
+    ))
+  }
+</ul>

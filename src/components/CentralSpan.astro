@@ -4,15 +4,12 @@ import { twMerge } from '../util'
 const { Element = 'div', class: pClass = '' } = Astro.props
 
 export interface Props {
-  Element?: 'div' | 'header' | 'main' | 'footer'
+  Element?: 'div' | 'section' | 'article' | 'footer'
   class?: string
 }
 ---
 
 <Element
-  class={twMerge(
-    'mx-8 grid max-w-6xl grid-cols-4 gap-x-6 sm:mx-auto sm:grid-cols-12',
-    pClass
-  )}>
+  class={twMerge('col-start-1 col-end-5 sm:col-start-3 sm:col-end-11', pClass)}>
   <slot />
 </Element>
