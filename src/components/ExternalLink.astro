@@ -5,12 +5,20 @@ const {
   class: pClass = '',
   rel = 'noopener noreferrer',
   target = '_blank',
+  href,
   ...props
 } = Astro.props
+
+const ABSOLUTE_URL_REGEX = /^(?:[a-z][a-z0-9+.-]*:|\/\/)/i
+
+let absoluteUrl = false
+if (typeof href === 'string') {
+  absoluteUrl = ABSOLUTE_URL_REGEX.test(href)
+}
 
 export interface Props extends HTMLAttributes<'a'> {}
 ---
 
-<a class={pClass} rel={rel} target={target} {...props}>
+<a class={pClass} href={href} {...absoluteUrl && { rel, target }} {...props}>
   <slot />
 </a>

@@ -1,9 +1,13 @@
 ---
-import { twMerge } from '../util'
-import type { HTMLAttributes } from 'astro/types'
-const { class: pClass = '', ...props } = Astro.props
+import type { HTMLTag, Polymorphic } from 'astro/types'
 
-export interface Props extends HTMLAttributes<'p'> {}
+import { twMerge } from '../util'
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>
+
+const { class: pClass = '', as: Element = 'p', ...props } = Astro.props
 ---
 
-<p class={twMerge('text-gray-300 text-body', pClass)} {...props}><slot /></p>
+<Element class={twMerge('text-gray-300 text-body', pClass)} {...props}>
+  <slot />
+</Element>
