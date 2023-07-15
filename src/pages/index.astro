@@ -1,7 +1,12 @@
 ---
 import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
-import Girish from '~/assets/girish.jpg'
+import Girish from '~/assets/girish.jpeg'
+import Grid from '../components/Grid.astro'
+import P from '../components/P.astro'
+import SubHeading from '../components/SubHeading.astro'
+import Title from '../components/title.astro'
+import ExternalLink from '../components/ExternalLink.astro'
 
 const job = {
   company: 'needl.ai',
@@ -14,35 +19,36 @@ const job = {
 ---
 
 <Layout title="Girish V">
-  <main
-    class="mx-8 grid h-screen max-w-6xl grid-cols-4 gap-x-6 sm:mx-auto sm:grid-cols-12">
-    <section
-      class="col-start-1 col-end-5 flex flex-col-reverse items-center gap-16 sm:col-start-3 sm:col-end-11 sm:flex-row">
-      <div class="flex flex-col gap-4 sm:flex-1">
-        <h1 class="text-gray-100 text-title">
+  <Grid Element="main">
+    <div
+      class="col-start-1 col-end-5 flex min-h-[100svh] flex-col items-center justify-center gap-16 sm:col-start-3 sm:col-end-11 sm:flex-row-reverse sm:justify-between">
+      <div class="sm:flex-1">
+        <Image
+          class="mx-auto h-60 w-60 max-w-none rounded-full object-cover object-top sm:h-80 sm:w-80"
+          width={320}
+          height={320}
+          src={Girish}
+          alt="cover picture of girish.v"
+        />
+      </div>
+      <div class="flex flex-col gap-4 pb-6 sm:flex-1">
+        <Title>
           hey, i'm <span class="text-gray-400 underline">girish!</span>
-        </h1>
-        <h2 class="text-gray-200 text-subheading">
-          currently <a href={job.url} rel="noopener noreferrer" target="_blank">
+        </Title>
+        <SubHeading>
+          currently <ExternalLink href={job.url}>
             <span class="text-gray-400">@{job.company}</span>
-          </a>
-        </h2>
-        <p class="text-gray-300 text-body">
+          </ExternalLink>
+        </SubHeading>
+        <P>
           I'm a passionate frontend wizard who weaves pixel-perfect spells to
           create extraordinary user interfaces for the web. When I'm not
           concocting UI magic, you'll find me spreading the joy of open source
           like a coding bard, sharing my insights with the community. With a
           touch of whimsy and a dash of technical expertise, I'm here to enchant
           users with unforgettable experiences.
-        </p>
+        </P>
       </div>
-      <div class="sm:flex-1">
-        <Image
-          class="m-0 h-60 w-60 max-w-none rounded-full object-cover object-top sm:h-80 sm:w-80"
-          src={Girish}
-          alt="cover picture of girish.v"
-        />
-      </div>
-    </section>
-  </main>
+    </div>
+  </Grid>
 </Layout>
