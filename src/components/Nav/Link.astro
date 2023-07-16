@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+import { twMerge } from '../../util'
+
+type Props = HTMLAttributes<'a'> & {
+  label: string
+}
+
+const { class: pClass = '', label, ...props } = Astro.props
+
+const url = new URL(Astro.request.url)
+const pathname = url.pathname
+---
+
+<a
+  class={twMerge(
+    'text-gray-100 px-4 py-2 text-xs rounded-[1.875rem] border border-gray-800 bg-gray-900 aria-[current]:bg-gray-50 aria-[current]:text-gray-900 hover:text-gray-100 hover:bg-gray-800 transition-colors duration-200 ease-in-out',
+    pClass
+  )}
+  aria-label={`Go to ${label}`}
+  {...props.href === pathname && { 'aria-current': 'page' }}
+  {...props}>
+  <slot />
+</a>

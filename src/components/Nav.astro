@@ -1,0 +1,21 @@
+---
+import Link from './Nav/Link.astro'
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' }
+]
+---
+
+<nav class="flex justify-center pt-12">
+  <ul
+    class="flex gap-1 rounded-[1.875rem] border border-gray-800 bg-gray-900 px-2 py-1.5">
+    {
+      links.map(({ href, label }) => (
+        <Link href={href} label={label}>
+          {label}
+        </Link>
+      ))
+    }
+  </ul>
+</nav>

@@ -12,6 +12,7 @@ import Heading from '../components/Heading.astro'
 import Title from '../components/Title.astro'
 import ExternalLink from '../components/ExternalLink.astro'
 import CentralSpan from '../components/CentralSpan.astro'
+import Nav from '../components/Nav.astro'
 
 const { title } = Astro.props
 
@@ -65,6 +66,9 @@ export interface Props {
     <title>{title}</title>
   </head>
   <body class="h-full">
+    <Grid as="header" class="hidden md:block">
+      <Nav />
+    </Grid>
     <slot />
     <Grid as="footer">
       <CentralSpan
