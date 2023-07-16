@@ -55,8 +55,9 @@ const myDetails = {
 ---
 
 <Layout title="Girish V">
-  <Grid Element="main">
+  <Grid as="main">
     <CentralSpan
+      as="section"
       class="flex min-h-[100svh] flex-col items-center justify-center gap-16 md:flex-row-reverse md:justify-between">
       <div class="pt-8 md:flex-1 md:pt-0">
         <Image
@@ -86,7 +87,7 @@ const myDetails = {
         </P>
       </div>
     </CentralSpan>
-    <CentralSpan class="flex flex-col gap-4 pt-12">
+    <CentralSpan as="section" class="flex flex-col gap-4 pt-12">
       <Heading>favourite technologies</Heading>
       <P>
         Welcome to the realm of my beloved technologies, a playground of digital
@@ -98,11 +99,13 @@ const myDetails = {
       <Technologies />
     </CentralSpan>
   </Grid>
-  <Grid Element="footer">
-    <CentralSpan class="flex min-h-[100svh] items-center justify-center">
+  <Grid as="footer">
+    <CentralSpan
+      as="section"
+      class="flex min-h-[100svh] items-center justify-center">
       <div class="flex flex-1 flex-col gap-32 md:flex-row md:justify-between">
         <div class="flex flex-col items-center gap-6 md:items-start">
-          <Title as="div">{myDetails.short}</Title>
+          <Title>{myDetails.short}</Title>
           <ul class="flex justify-center gap-4 md:self-center">
             {
               myDetails.socials.map(({ description, icon, label, url }) => (
@@ -124,7 +127,7 @@ const myDetails = {
         {
           myDetails.links.length > 0 ? (
             <div class="flex flex-col items-center gap-4 md:items-start">
-              <Heading as="div">sitemap</Heading>
+              <Heading as="h3">sitemap</Heading>
               <ul class="flex flex-col items-center gap-4 md:items-start">
                 {myDetails.links.map(({ label, url }) => (
                   <ExternalLink href={url}>
