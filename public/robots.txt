@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://girishv.com/sitemap-index.xml
