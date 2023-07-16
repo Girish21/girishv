@@ -2,9 +2,6 @@
 import { Image } from 'astro:assets'
 import Layout from '../layouts/Layout.astro'
 import Girish from '~/assets/girish.jpeg'
-import GitHub from '~/assets/github.svg'
-import Twitter from '~/assets/twitter.svg'
-import Mail from '~/assets/mail.svg'
 import Grid from '../components/Grid.astro'
 import P from '../components/P.astro'
 import SubHeading from '../components/SubHeading.astro'
@@ -22,33 +19,6 @@ const job = {
   start: '2020',
   end: 'present'
 }
-
-const myDetails = {
-  name: 'Girish Venkatesan',
-  short: 'girish . v',
-  email: 'contact@girishv.com',
-  socials: [
-    {
-      label: 'github',
-      url: 'https://github.com/girish21',
-      icon: GitHub,
-      description: 'GitHub profile of Girish'
-    },
-    {
-      label: 'twitter',
-      url: 'https://twitter.com/girishk21',
-      icon: Twitter,
-      description: 'Twitter profile of Girish'
-    },
-    {
-      label: 'email',
-      url: 'mailto:contact@girishv.com',
-      icon: Mail,
-      description: 'Email Girish'
-    }
-  ],
-  links: [{ label: 'home', url: '/' }]
-} as const
 ---
 
 <Layout title="Girish V">
@@ -94,52 +64,6 @@ const myDetails = {
         spellbound.
       </P>
       <Technologies />
-    </CentralSpan>
-  </Grid>
-  <Grid as="footer">
-    <CentralSpan
-      as="section"
-      class="flex min-h-[100svh] items-center justify-center">
-      <div class="flex flex-1 flex-col gap-32 md:flex-row md:justify-between">
-        <div class="flex flex-col items-center gap-6 md:items-start">
-          <Title>{myDetails.short}</Title>
-          <ul class="flex justify-center gap-4 md:self-center">
-            {
-              myDetails.socials.map(({ description, icon, label, url }) => (
-                <li>
-                  <ExternalLink href={url}>
-                    <span class="sr-only">{description}</span>
-                    <img
-                      aria-hidden="true"
-                      src={icon.src}
-                      alt={`${label}`}
-                      loading="lazy"
-                      decoding="async"
-                      class="h-6 w-6"
-                    />
-                  </ExternalLink>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-        {
-          myDetails.links.length > 0 ? (
-            <div class="flex flex-col items-center gap-4 md:items-start">
-              <Heading as="h3">sitemap</Heading>
-              <ul class="flex flex-col items-center gap-4 md:items-start">
-                {myDetails.links.map(({ label, url }) => (
-                  <li>
-                    <ExternalLink href={url}>
-                      <SubHeading as="span">{label}</SubHeading>
-                    </ExternalLink>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ) : null
-        }
-      </div>
     </CentralSpan>
   </Grid>
 </Layout>

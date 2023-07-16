@@ -1,0 +1,31 @@
+---
+import CentralSpan from '../components/CentralSpan.astro'
+import GitHub, { ROLES } from '../components/GitHub.astro'
+import Grid from '../components/Grid.astro'
+import Heading from '../components/Heading.astro'
+import P from '../components/P.astro'
+import Layout from '../layouts/Layout.astro'
+
+const GITHUB_REPOSITORIES = [
+  { repo: 'remix-run/remix', role: ROLES.CONTRIBUTOR },
+  { repo: 'Girish21/speed-metal-stack', role: ROLES.AUTHOR },
+  { repo: 'Girish21/cf-url-shortener', role: ROLES.AUTHOR },
+  { repo: 'Girish21/remix-cloudflare-workers-template', role: ROLES.AUTHOR }
+] as const
+---
+
+<Layout title="Projects">
+  <Grid as="main">
+    <CentralSpan as="section" class="pt-32">
+      <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-4">
+          <Heading as="h1">Projects</Heading>
+          <P>Open Source Contributions and Side Projects Galore!</P>
+        </div>
+        <ul class="flex flex-col gap-4">
+          {GITHUB_REPOSITORIES.map((detail) => <GitHub {...detail} />)}
+        </ul>
+      </div>
+    </CentralSpan>
+  </Grid>
+</Layout>

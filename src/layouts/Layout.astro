@@ -2,7 +2,48 @@
 import '@fontsource-variable/inter'
 import '../base.css'
 
+import GitHub from '~/assets/github.svg'
+import Twitter from '~/assets/twitter.svg'
+import Mail from '~/assets/mail.svg'
+
+import Grid from '../components/Grid.astro'
+import SubHeading from '../components/SubHeading.astro'
+import Heading from '../components/Heading.astro'
+import Title from '../components/Title.astro'
+import ExternalLink from '../components/ExternalLink.astro'
+import CentralSpan from '../components/CentralSpan.astro'
+
 const { title } = Astro.props
+
+const myDetails = {
+  name: 'Girish Venkatesan',
+  short: 'girish . v',
+  email: 'contact@girishv.com',
+  socials: [
+    {
+      label: 'github',
+      url: 'https://github.com/girish21',
+      icon: GitHub,
+      description: 'GitHub profile of Girish'
+    },
+    {
+      label: 'twitter',
+      url: 'https://twitter.com/girishk21',
+      icon: Twitter,
+      description: 'Twitter profile of Girish'
+    },
+    {
+      label: 'email',
+      url: 'mailto:contact@girishv.com',
+      icon: Mail,
+      description: 'Email Girish'
+    }
+  ],
+  links: [
+    { label: 'home', url: '/' },
+    { label: 'projects', url: '/projects' }
+  ]
+} as const
 
 export interface Props {
   title: string
@@ -25,6 +66,52 @@ export interface Props {
   </head>
   <body class="h-full">
     <slot />
+    <Grid as="footer">
+      <CentralSpan
+        as="section"
+        class="flex min-h-[100svh] items-center justify-center">
+        <div class="flex flex-1 flex-col gap-32 md:flex-row md:justify-between">
+          <div class="flex flex-col items-center gap-6 md:items-start">
+            <Title>{myDetails.short}</Title>
+            <ul class="flex justify-center gap-4 md:self-center">
+              {
+                myDetails.socials.map(({ description, icon, label, url }) => (
+                  <li>
+                    <ExternalLink href={url}>
+                      <span class="sr-only">{description}</span>
+                      <img
+                        aria-hidden="true"
+                        src={icon.src}
+                        alt={`${label}`}
+                        loading="lazy"
+                        decoding="async"
+                        class="h-6 w-6"
+                      />
+                    </ExternalLink>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+          {
+            myDetails.links.length > 0 ? (
+              <div class="flex flex-col items-center gap-4 md:items-start">
+                <Heading as="h3">sitemap</Heading>
+                <ul class="flex flex-col items-center gap-4 md:items-start">
+                  {myDetails.links.map(({ label, url }) => (
+                    <li>
+                      <ExternalLink href={url}>
+                        <SubHeading as="span">{label}</SubHeading>
+                      </ExternalLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null
+          }
+        </div>
+      </CentralSpan>
+    </Grid>
     <!-- Cloudflare Web Analytics -->
     <script
       defer
