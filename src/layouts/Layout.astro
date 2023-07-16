@@ -17,7 +17,7 @@ export interface Props {
       name="description"
       content="Welcome to my portfolio site, the magical kingdom where imagination meets code. It's a place where unicorns roam free, designs dance to their own beat, and websites become portals to extraordinary worlds. Get ready to be transported on a whimsical journey through the enchanted land of my creative endeavors!"
     />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
@@ -25,5 +25,12 @@ export interface Props {
   </head>
   <body class="h-full">
     <slot />
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      type="text/partytown"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "6b509cc97a344aafb3f78457c356881b"}'
+    ></script><!-- End Cloudflare Web Analytics -->
   </body>
 </html>

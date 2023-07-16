@@ -106,17 +106,19 @@ const myDetails = {
           <ul class="flex justify-center gap-4 md:self-center">
             {
               myDetails.socials.map(({ description, icon, label, url }) => (
-                <ExternalLink href={url}>
-                  <li>
+                <li>
+                  <ExternalLink href={url}>
                     <span class="sr-only">{description}</span>
                     <img
                       aria-hidden="true"
                       src={icon.src}
                       alt={`${label}`}
+                      loading="lazy"
+                      decoding="async"
                       class="h-6 w-6"
                     />
-                  </li>
-                </ExternalLink>
+                  </ExternalLink>
+                </li>
               ))
             }
           </ul>
@@ -127,11 +129,11 @@ const myDetails = {
               <Heading as="h3">sitemap</Heading>
               <ul class="flex flex-col items-center gap-4 md:items-start">
                 {myDetails.links.map(({ label, url }) => (
-                  <ExternalLink href={url}>
-                    <li>
+                  <li>
+                    <ExternalLink href={url}>
                       <SubHeading as="span">{label}</SubHeading>
-                    </li>
-                  </ExternalLink>
+                    </ExternalLink>
+                  </li>
                 ))}
               </ul>
             </div>
