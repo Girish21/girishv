@@ -17,6 +17,7 @@ export interface Props {
     <img
       src={image.src}
       alt={`Logo of ${label}`}
+      aria-hidden="true"
       width={20}
       height={20}
       loading="lazy"
@@ -24,5 +25,5 @@ export interface Props {
       class="z-10 h-5 w-5 max-w-none"
     />
   </div>
-  <P>{label}</P>
+  <P as="span">{label}</P>
 </li>

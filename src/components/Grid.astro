@@ -1,12 +1,11 @@
 ---
+import type { HTMLTag, Polymorphic } from 'astro/types'
+
 import { twMerge } from '../util'
 
-const { Element = 'div', class: pClass = '' } = Astro.props
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }>
 
-export interface Props {
-  Element?: 'div' | 'header' | 'main' | 'footer'
-  class?: string
-}
+const { as: Element = 'div', class: pClass = '' } = Astro.props
 ---
 
 <Element
