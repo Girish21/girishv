@@ -13,8 +13,5 @@ export default defineConfig({
     sitemap(),
     partytown()
   ],
-  site: 'https://girishv.com',
-  experimental: {
-    assets: true
-  }
+  site: 'https://girishv.com'
 })

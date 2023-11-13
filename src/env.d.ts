@@ -1,4 +1,4 @@
-/// <reference types="astro/client-image" />
+/// <reference types="astro/client" />
 
 interface ImportMetaEnv {
   readonly GH_ACCESS_KEY: string
