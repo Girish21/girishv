@@ -9,14 +9,17 @@ const links = [
 
 <nav
   class="fixed bottom-8 left-1/2 flex max-w-[220px] -translate-x-1/2 justify-center md:max-w-fit">
-  <ul
-    class="flex w-full gap-1 overflow-auto rounded-[1.875rem] border border-gray-800 bg-gray-900 px-2 py-1.5 shadow-[0px_4px_16px_6px_#000]">
+  <div
+    class="flex w-full gap-1 overflow-auto rounded-[1.875rem] border border-gray-800 bg-gray-900 px-2 py-1.5 shadow-[0px_4px_16px_6px_#000]"
+    role="list">
     {
       links.map(({ href, label }) => (
-        <Link href={href} label={label}>
-          {label}
-        </Link>
+        <div role="listitem" class="[&>a]:block">
+          <Link href={href} label={label}>
+            {label}
+          </Link>
+        </div>
       ))
     }
-  </ul>
+  </div>
 </nav>
