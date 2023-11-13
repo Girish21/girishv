@@ -1,13 +1,13 @@
 ---
 import Technology from './Technology.astro'
 
-import AstroImg from '~/assets/astro.svg'
-import Node from '~/assets/nodejs.svg'
-import JavaScript from '~/assets/javascript_round.svg'
-import TypeScript from '~/assets/typescript.svg'
-import React from '~/assets/react.svg'
-import Remix from '~/assets/remix.png'
-import Solid from '~/assets/solidjs.svg'
+import AstroImg from '../../assets/astro.svg'
+import Node from '../../assets/nodejs.svg'
+import JavaScript from '../../assets/javascript_round.svg'
+import TypeScript from '../../assets/typescript.svg'
+import React from '../../assets/react.svg'
+import Remix from '../../assets/remix.png'
+import Solid from '../../assets/solidjs.svg'
 
 const technologies = [
   { label: 'javascript', image: JavaScript },
@@ -17,7 +17,7 @@ const technologies = [
   { label: 'node.js', image: Node },
   { label: 'solid.js', image: Solid },
   { label: 'astro', image: AstroImg }
-]
+] as const
 ---
 
 <ul class="grid grid-cols-1 gap-y-4 md:grid-cols-2">
