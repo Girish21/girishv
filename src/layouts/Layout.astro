@@ -2,17 +2,19 @@
 import '@fontsource-variable/inter'
 import '../base.css'
 
-import GitHub from '~/assets/github.svg'
-import Twitter from '~/assets/twitter.svg'
-import Mail from '~/assets/mail.svg'
+import { ViewTransitions } from 'astro:transitions'
 
-import Grid from '../components/Grid.astro'
-import SubHeading from '../components/SubHeading.astro'
-import Heading from '../components/Heading.astro'
-import Title from '../components/Title.astro'
-import ExternalLink from '../components/ExternalLink.astro'
+import GitHub from '../assets/github.svg'
+import Mail from '../assets/mail.svg'
+import Twitter from '../assets/twitter.svg'
+
 import CentralSpan from '../components/CentralSpan.astro'
+import ExternalLink from '../components/ExternalLink.astro'
+import Grid from '../components/Grid.astro'
+import Heading from '../components/Heading.astro'
 import Nav from '../components/Nav.astro'
+import SubHeading from '../components/SubHeading.astro'
+import Title from '../components/Title.astro'
 
 const { title } = Astro.props
 
@@ -63,10 +65,11 @@ export interface Props {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
     <title>{title}</title>
   </head>
   <body class="h-full">
-    <Grid as="header" class="hidden md:block">
+    <Grid as="header">
       <Nav />
     </Grid>
     <slot />
