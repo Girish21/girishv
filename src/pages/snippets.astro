@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content'
+import CentralSpan from '../components/CentralSpan.astro'
+import Grid from '../components/Grid.astro'
+import SnippetCard from '../components/snippet-card.astro'
+import SnippetList from '../components/snippet-list.astro'
+import Layout from '../layouts/Layout.astro'
+import SectionContent from '../layouts/section-content.astro'
+
+const allSnippets = await getCollection(
+  'snippets',
+  ({ data }) => data.published
+)
+---
+
+<Layout title="Snippets">
+  <Grid as="main" class="isolate">
+    <CentralSpan as="section" class="pt-32">
+      <SectionContent
+        description="Unleashing Efficiency with My Go-To Snippets"
+        title="Snippets">
+        <SnippetList>
+          {
+            allSnippets.map((snippet) => (
+              <SnippetCard
+                description={snippet.data.description}
+                slug={snippet.slug}
+                tags={snippet.data.tags}
+                title={snippet.data.title}
+              />
+            ))
+          }
+        </SnippetList>
+      </SectionContent>
+    </CentralSpan>
+  </Grid>
+</Layout>
