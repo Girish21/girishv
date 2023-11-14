@@ -1,15 +1,15 @@
 ---
 import { Image } from 'astro:assets'
-import Layout from '../layouts/Layout.astro'
 import Girish from '../assets/girish.jpeg'
+import CentralSpan from '../components/CentralSpan.astro'
+import ExternalLink from '../components/ExternalLink.astro'
 import Grid from '../components/Grid.astro'
+import Heading from '../components/Heading.astro'
 import P from '../components/P.astro'
 import SubHeading from '../components/SubHeading.astro'
-import Heading from '../components/Heading.astro'
 import Title from '../components/Title.astro'
-import ExternalLink from '../components/ExternalLink.astro'
-import CentralSpan from '../components/CentralSpan.astro'
 import Technologies from '../components/technologies/Technologies.astro'
+import Layout from '../layouts/Layout.astro'
 
 const job = {
   company: 'needl.ai',
@@ -32,6 +32,7 @@ const job = {
           width={500}
           height={500}
           src={Girish}
+          loading="eager"
           alt="cover picture of girish.v"
         />
       </div>
