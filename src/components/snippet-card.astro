@@ -2,6 +2,7 @@
 import ExternalLink from './ExternalLink.astro'
 import P from './P.astro'
 import SubHeading from './SubHeading.astro'
+import InlineCodeFormatter from './inline-code-formatter.astro'
 import Tag from './tag.astro'
 
 const { description, slug, tags, title } = Astro.props
@@ -19,7 +20,7 @@ export interface Props {
     <article
       class="flex h-full flex-col items-start gap-4 rounded-lg border border-gray-700 p-4 transition-colors duration-150 ease-out group-hover:bg-gray-800 group-focus:bg-gray-800">
       <SubHeading>
-        {title}
+        <InlineCodeFormatter text={title} />
       </SubHeading>
       <P class="line-clamp-3">{description}</P>
       <div class="flex flex-1 items-end">

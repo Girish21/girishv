@@ -1,0 +1,33 @@
+---
+const { text } = Astro.props
+
+const splitOnCodeBlock = text.split(/(\`\w+\`)/g).map((part) => {
+  if (part.startsWith('`')) {
+    return {
+      type: 'code',
+      text: part
+    }
+  }
+
+  return {
+    type: 'text',
+    text: part
+  }
+})
+
+export interface Props {
+  text: string
+}
+---
+
+{
+  splitOnCodeBlock.map(({ text, type }) =>
+    type === 'code' ? (
+      <code class="whitespace-pre rounded-md bg-gray-800 font-mono normal-case text-gray-100 group-hover:bg-gray-900 group-focus:bg-gray-900">
+        {text}
+      </code>
+    ) : (
+      <span>{text}</span>
+    )
+  )
+}
