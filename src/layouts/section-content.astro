@@ -1,0 +1,19 @@
+---
+import Heading from '../components/Heading.astro'
+import P from '../components/P.astro'
+
+const { description, title } = Astro.props
+
+export interface Props {
+  description: string
+  title: string
+}
+---
+
+<div class="flex flex-col gap-6">
+  <div class="flex flex-col gap-4">
+    <Heading as="h1">{title}</Heading>
+    <P>{description}</P>
+  </div>
+  <slot />
+</div>

@@ -2,9 +2,8 @@
 import CentralSpan from '../components/CentralSpan.astro'
 import GitHub, { ROLES } from '../components/GitHub.astro'
 import Grid from '../components/Grid.astro'
-import Heading from '../components/Heading.astro'
-import P from '../components/P.astro'
 import Layout from '../layouts/Layout.astro'
+import SectionContent from '../layouts/section-content.astro'
 
 const GITHUB_REPOSITORIES = [
   { repo: 'remix-run/remix', role: ROLES.CONTRIBUTOR },
@@ -17,15 +16,13 @@ const GITHUB_REPOSITORIES = [
 <Layout title="Projects">
   <Grid as="main" class="isolate">
     <CentralSpan as="section" class="pt-32">
-      <div class="flex flex-col gap-6">
-        <div class="flex flex-col gap-4">
-          <Heading as="h1">Projects</Heading>
-          <P>Open Source Contributions and Side Projects Galore!</P>
-        </div>
+      <SectionContent
+        description="Open Source Contributions and Side Projects Galore!"
+        title="Projects">
         <ul class="flex flex-col gap-4">
           {GITHUB_REPOSITORIES.map((detail) => <GitHub {...detail} />)}
         </ul>
-      </div>
+      </SectionContent>
     </CentralSpan>
   </Grid>
 </Layout>
