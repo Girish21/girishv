@@ -22,15 +22,19 @@ export const getStaticPaths = (async () => {
 const { slug } = Astro.params
 
 const snippet = await getEntry('snippets', slug)
+const { Content } = await snippet.render()
 ---
 
 <Layout title='Snippets'>
   <Grid as='main' class='isolate'>
-    <CentralSpan as='section' class='pt-32'>
+    <CentralSpan as='section' class='flex flex-col gap-8 pt-32'>
       <SectionContent
         description={snippet.data.description}
         title={snippet.data.title}
       />
+      <article class='prose prose-invert'>
+        <Content />
+      </article>
     </CentralSpan>
   </Grid>
 </Layout>
