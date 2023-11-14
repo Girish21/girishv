@@ -4,6 +4,7 @@ import Star from '../assets/star.svg'
 import ExternalLink from './ExternalLink.astro'
 import P from './P.astro'
 import SubHeading from './SubHeading.astro'
+import Tag from './tag.astro'
 
 const octokit = new Octokit({
   auth: import.meta.env.GH_ACCESS_KEY
@@ -37,9 +38,9 @@ export const ROLES = { AUTHOR: 'AUTHOR', CONTRIBUTOR: 'CONTRIBUTOR' } as const
 ---
 
 <li>
-  <ExternalLink href={html_url}>
-    <div
-      class="flex flex-col gap-4 overflow-hidden rounded-xl border border-gray-700 py-4">
+  <ExternalLink href={html_url} class="group">
+    <article
+      class="flex flex-col gap-4 overflow-hidden rounded-xl border border-gray-700 py-4 transition-colors duration-150 ease-out group-hover:bg-gray-800 group-focus:bg-gray-800">
       <SubHeading class="px-4">
         {full_name}
         <span
@@ -65,21 +66,16 @@ export const ROLES = { AUTHOR: 'AUTHOR', CONTRIBUTOR: 'CONTRIBUTOR' } as const
           </P>
         </div>
         {
-          topics ? (
+          topics && topics?.length > 0 ? (
             <ul class="flex items-center gap-4 overflow-x-auto pr-4">
-              {topics.map((topic, index) => (
-                <li class={index > 2 ? 'sm:hidden' : ''}>
-                  <div class="rounded border border-gray-700 px-2 py-1">
-                    <P as="span" class="whitespace-nowrap">
-                      {topic}
-                    </P>
-                  </div>
-                </li>
+              <span class="sr-only">Topics: {topics.join(',')}</span>
+              {topics.slice(0, 5).map((topic, index) => (
+                <Tag class={index > 2 ? 'max-sm:hidden' : ''}>{topic}</Tag>
               ))}
             </ul>
           ) : null
         }
       </div>
-    </div>
+    </article>
   </ExternalLink>
 </li>
