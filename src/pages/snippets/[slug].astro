@@ -1,0 +1,36 @@
+---
+import type { GetStaticPaths } from 'astro'
+import { getCollection, getEntry } from 'astro:content'
+import CentralSpan from '../../components/CentralSpan.astro'
+import Grid from '../../components/Grid.astro'
+import Layout from '../../layouts/Layout.astro'
+import SectionContent from '../../layouts/section-content.astro'
+
+export const getStaticPaths = (async () => {
+  const allSnippets = await getCollection(
+    'snippets',
+    ({ data }) => data.published
+  )
+
+  return allSnippets.map((snippet) => ({
+    params: {
+      slug: snippet.slug
+    }
+  }))
+}) satisfies GetStaticPaths
+
+const { slug } = Astro.params
+
+const snippet = await getEntry('snippets', slug)
+---
+
+<Layout title='Snippets'>
+  <Grid as='main' class='isolate'>
+    <CentralSpan as='section' class='pt-32'>
+      <SectionContent
+        description={snippet.data.description}
+        title={snippet.data.title}
+      />
+    </CentralSpan>
+  </Grid>
+</Layout>
