@@ -19,6 +19,7 @@ module.exports = {
     }
   },
   plugins: [
+    require('@tailwindcss/container-queries'),
     /** @type {import('tailwindcss/types/config').PluginCreator} */
     ({ addUtilities }) => {
       addUtilities({

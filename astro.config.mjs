@@ -1,8 +1,8 @@
-import { defineConfig } from 'astro/config'
-import tailwind from '@astrojs/tailwind'
-import sitemap from '@astrojs/sitemap'
-
+import markdoc from '@astrojs/markdoc'
 import partytown from '@astrojs/partytown'
+import sitemap from '@astrojs/sitemap'
+import tailwind from '@astrojs/tailwind'
+import { defineConfig } from 'astro/config'
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,7 +11,12 @@ export default defineConfig({
       applyBaseStyles: false
     }),
     sitemap(),
-    partytown()
+    partytown(),
+    markdoc()
   ],
-  site: 'https://girishv.com'
+  site: 'https://girishv.com',
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'viewport'
+  }
 })
