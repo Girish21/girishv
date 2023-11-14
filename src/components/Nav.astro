@@ -1,10 +1,11 @@
 ---
 import Link from './Nav/Link.astro'
 
-const links = [
-  { href: '/', label: 'Home' },
-  { href: '/projects', label: 'Projects' }
-]
+const { links } = Astro.props
+
+export interface Props {
+  links: { label: string; url: string }[]
+}
 ---
 
 <nav
@@ -13,9 +14,9 @@ const links = [
     class="flex w-full gap-1 overflow-auto rounded-[1.875rem] border border-gray-800 bg-gray-900 px-2 py-1.5 shadow-[0px_4px_16px_6px_#000]"
     role="list">
     {
-      links.map(({ href, label }) => (
+      links.map(({ url, label }) => (
         <div role="listitem" class="[&>a]:block">
-          <Link href={href} label={label}>
+          <Link href={url} label={label}>
             {label}
           </Link>
         </div>

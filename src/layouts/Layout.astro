@@ -46,7 +46,7 @@ const myDetails = {
     { label: 'home', url: '/' },
     { label: 'projects', url: '/projects' }
   ]
-} as const
+}
 
 export interface Props {
   title: string
@@ -70,7 +70,7 @@ export interface Props {
   </head>
   <body class="h-full">
     <Grid as="header">
-      <Nav />
+      <Nav links={myDetails.links} />
     </Grid>
     <slot />
     <Grid as="footer">
