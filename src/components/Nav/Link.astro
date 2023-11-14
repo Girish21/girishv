@@ -9,8 +9,19 @@ type Props = HTMLAttributes<'a'> & {
 
 const { class: pClass = '', label, ...props } = Astro.props
 
-const url = new URL(Astro.request.url)
-const pathname = url.pathname.replace(/\/$/, '') || '/'
+const requestUrl = new URL(Astro.request.url)
+const requestUrlPathname = requestUrl.pathname.replace(/\/$/, '') || '/'
+
+const hrefUrl = new URL(props.href || '', requestUrl)
+const hrefMatchPattern = new RegExp(
+  `^${hrefUrl.pathname.replace(/\//g, '\\$&')}`
+)
+
+const isActive =
+  /** if the link target href matches with the request URL and the target href is not the index route (`/`) */
+  (hrefMatchPattern.test(requestUrlPathname) && hrefUrl.pathname !== '/') ||
+  /** if the link href and the request URL are to the index route  */
+  (requestUrlPathname === '/' && hrefUrl.pathname === '/')
 ---
 
 <a
@@ -19,7 +30,7 @@ const pathname = url.pathname.replace(/\/$/, '') || '/'
     pClass
   )}
   aria-label={`Go to ${label}`}
-  {...props.href === pathname && { 'aria-current': 'page' }}
+  {...isActive && { 'aria-current': 'page' }}
   {...props}
 >
   <slot />
