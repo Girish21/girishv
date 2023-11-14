@@ -9,6 +9,7 @@ const { as: Element = 'div', class: pClass = '' } = Astro.props
 ---
 
 <Element
-  class={twMerge('col-start-1 col-end-5 sm:col-start-3 sm:col-end-11', pClass)}>
+  class={twMerge('col-start-1 col-end-5 sm:col-start-3 sm:col-end-11', pClass)}
+>
   <slot />
 </Element>

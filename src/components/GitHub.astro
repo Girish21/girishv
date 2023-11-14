@@ -38,37 +38,38 @@ export const ROLES = { AUTHOR: 'AUTHOR', CONTRIBUTOR: 'CONTRIBUTOR' } as const
 ---
 
 <li>
-  <ExternalLink href={html_url} class="group">
+  <ExternalLink href={html_url} class='group'>
     <article
-      class="flex flex-col gap-4 overflow-hidden rounded-xl border border-gray-700 py-4 transition-colors duration-150 ease-out group-hover:bg-gray-800 group-focus:bg-gray-800">
-      <SubHeading class="px-4">
+      class='flex flex-col gap-4 overflow-hidden rounded-xl border border-gray-700 py-4 transition-colors duration-150 ease-out group-hover:bg-gray-800 group-focus:bg-gray-800'
+    >
+      <SubHeading class='px-4'>
         {full_name}
         <span
-          class="ml-2 inline-block rounded-md bg-gray-300 px-2 py-0.5 align-middle text-xs text-background"
+          class='ml-2 inline-block rounded-md bg-gray-300 px-2 py-0.5 align-middle text-xs text-background'
           >{role}</span
         >
       </SubHeading>
-      <P class="px-4">{description}</P>
-      <div class="flex items-center justify-between gap-6 pl-4">
-        <div class="flex flex-shrink-0 items-center gap-2">
+      <P class='px-4'>{description}</P>
+      <div class='flex items-center justify-between gap-6 pl-4'>
+        <div class='flex flex-shrink-0 items-center gap-2'>
           <img
             src={Star.src}
-            alt="GitHub repository star count icon"
-            class="h-6 w-6"
-            aria-hidden="true"
+            alt='GitHub repository star count icon'
+            class='h-6 w-6'
+            aria-hidden='true'
             width={24}
             height={24}
-            loading="lazy"
-            decoding="async"
+            loading='lazy'
+            decoding='async'
           />
-          <P as="span">
+          <P as='span'>
             {stargazers_count}
           </P>
         </div>
         {
           topics && topics?.length > 0 ? (
-            <ul class="flex items-center gap-4 overflow-x-auto pr-4">
-              <span class="sr-only">Topics: {topics.join(',')}</span>
+            <ul class='flex items-center gap-4 overflow-x-auto pr-4'>
+              <span class='sr-only'>Topics: {topics.join(',')}</span>
               {topics.slice(0, 5).map((topic, index) => (
                 <Tag class={index > 2 ? 'max-sm:hidden' : ''}>{topic}</Tag>
               ))}

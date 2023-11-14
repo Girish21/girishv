@@ -13,12 +13,13 @@ const allSnippets = await getCollection(
 )
 ---
 
-<Layout title="Snippets">
-  <Grid as="main" class="isolate">
-    <CentralSpan as="section" class="pt-32">
+<Layout title='Snippets'>
+  <Grid as='main' class='isolate'>
+    <CentralSpan as='section' class='pt-32'>
       <SectionContent
-        description="Unleashing Efficiency with My Go-To Snippets"
-        title="Snippets">
+        description='Unleashing Efficiency with My Go-To Snippets'
+        title='Snippets'
+      >
         <SnippetList>
           {
             allSnippets.map((snippet) => (

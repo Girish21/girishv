@@ -11,19 +11,20 @@ export interface Props {
 }
 ---
 
-<li class="flex items-center gap-4">
+<li class='flex items-center gap-4'>
   <div
-    class="relative flex h-8 w-8 items-center justify-center rounded-full bg-[#1E293B] shadow-[0px_4px_4px_0px_rgba(255,255,255,0.10)_inset] after:absolute after:inset-0 after:bg-[radial-gradient(37.50%_37.50%_at_50.00%_50.00%,#0F172A_0%,rgba(15,_23,_42,_0.00)_100%)]">
+    class='relative flex h-8 w-8 items-center justify-center rounded-full bg-[#1E293B] shadow-[0px_4px_4px_0px_rgba(255,255,255,0.10)_inset] after:absolute after:inset-0 after:bg-[radial-gradient(37.50%_37.50%_at_50.00%_50.00%,#0F172A_0%,rgba(15,_23,_42,_0.00)_100%)]'
+  >
     <img
       src={image.src}
       alt={`Logo of ${label}`}
-      aria-hidden="true"
+      aria-hidden='true'
       width={20}
       height={20}
-      loading="lazy"
-      decoding="async"
-      class="z-10 h-5 w-5 max-w-none"
+      loading='lazy'
+      decoding='async'
+      class='z-10 h-5 w-5 max-w-none'
     />
   </div>
-  <P as="span">{label}</P>
+  <P as='span'>{label}</P>
 </li>

@@ -54,46 +54,47 @@ export interface Props {
 }
 ---
 
-<!DOCTYPE html>
-<html lang="en" class="h-full bg-background">
+<!doctype html>
+<html lang='en' class='h-full bg-background'>
   <head>
-    <meta charset="UTF-8" />
+    <meta charset='UTF-8' />
     <meta
-      name="description"
+      name='description'
       content="Welcome to my portfolio site, the magical kingdom where imagination meets code. It's a place where unicorns roam free, designs dance to their own beat, and websites become portals to extraordinary worlds. Get ready to be transported on a whimsical journey through the enchanted land of my creative endeavors!"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name='viewport' content='width=device-width, initial-scale=1' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+    <meta name='generator' content={Astro.generator} />
     <ViewTransitions />
     <title>{title}</title>
   </head>
-  <body class="h-full">
-    <Grid as="header">
+  <body class='h-full'>
+    <Grid as='header'>
       <Nav links={myDetails.links} />
     </Grid>
     <slot />
-    <Grid as="footer">
+    <Grid as='footer'>
       <CentralSpan
-        as="section"
-        class="flex min-h-[100svh] items-center justify-center">
-        <div class="flex flex-1 flex-col gap-32 md:flex-row md:justify-between">
-          <div class="flex flex-col items-center gap-6 md:items-start">
+        as='section'
+        class='flex min-h-[100svh] items-center justify-center'
+      >
+        <div class='flex flex-1 flex-col gap-32 md:flex-row md:justify-between'>
+          <div class='flex flex-col items-center gap-6 md:items-start'>
             <Title>{myDetails.short}</Title>
-            <ul class="flex justify-center gap-4 md:self-center">
+            <ul class='flex justify-center gap-4 md:self-center'>
               {
                 myDetails.socials.map(({ description, icon, label, url }) => (
                   <li>
                     <ExternalLink href={url}>
-                      <span class="sr-only">{description}</span>
+                      <span class='sr-only'>{description}</span>
                       <img
-                        aria-hidden="true"
+                        aria-hidden='true'
                         src={icon.src}
                         alt={`${label}`}
-                        loading="lazy"
-                        decoding="async"
-                        class="h-6 w-6"
+                        loading='lazy'
+                        decoding='async'
+                        class='h-6 w-6'
                       />
                     </ExternalLink>
                   </li>
@@ -103,13 +104,13 @@ export interface Props {
           </div>
           {
             myDetails.links.length > 0 ? (
-              <div class="flex flex-col items-center gap-4 md:items-start">
-                <Heading as="h3">sitemap</Heading>
-                <ul class="flex flex-col items-center gap-4 md:items-start">
+              <div class='flex flex-col items-center gap-4 md:items-start'>
+                <Heading as='h3'>sitemap</Heading>
+                <ul class='flex flex-col items-center gap-4 md:items-start'>
                   {myDetails.links.map(({ label, url }) => (
                     <li>
                       <ExternalLink href={url}>
-                        <SubHeading as="span">{label}</SubHeading>
+                        <SubHeading as='span'>{label}</SubHeading>
                       </ExternalLink>
                     </li>
                   ))}
@@ -123,8 +124,8 @@ export interface Props {
     <!-- Cloudflare Web Analytics -->
     <script
       defer
-      type="text/partytown"
-      src="https://static.cloudflareinsights.com/beacon.min.js"
+      type='text/partytown'
+      src='https://static.cloudflareinsights.com/beacon.min.js'
       data-cf-beacon='{"token": "6b509cc97a344aafb3f78457c356881b"}'
     ></script><!-- End Cloudflare Web Analytics -->
   </body>

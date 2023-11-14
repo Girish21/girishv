@@ -13,13 +13,14 @@ const GITHUB_REPOSITORIES = [
 ] as const
 ---
 
-<Layout title="Projects">
-  <Grid as="main" class="isolate">
-    <CentralSpan as="section" class="pt-32">
+<Layout title='Projects'>
+  <Grid as='main' class='isolate'>
+    <CentralSpan as='section' class='pt-32'>
       <SectionContent
-        description="Open Source Contributions and Side Projects Galore!"
-        title="Projects">
-        <ul class="flex flex-col gap-4">
+        description='Open Source Contributions and Side Projects Galore!'
+        title='Projects'
+      >
+        <ul class='flex flex-col gap-4'>
           {GITHUB_REPOSITORIES.map((detail) => <GitHub {...detail} />)}
         </ul>
       </SectionContent>

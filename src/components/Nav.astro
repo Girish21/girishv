@@ -9,13 +9,15 @@ export interface Props {
 ---
 
 <nav
-  class="fixed bottom-8 left-1/2 z-10 flex max-w-[220px] -translate-x-1/2 justify-center md:max-w-fit">
+  class='fixed bottom-8 left-1/2 z-10 flex max-w-[220px] -translate-x-1/2 justify-center md:max-w-fit'
+>
   <div
-    class="flex w-full gap-1 overflow-auto rounded-[1.875rem] border border-gray-800 bg-gray-900 px-2 py-1.5 shadow-[0px_4px_16px_6px_#00000070]"
-    role="list">
+    class='flex w-full gap-1 overflow-auto rounded-[1.875rem] border border-gray-800 bg-gray-900 px-2 py-1.5 shadow-[0px_4px_16px_6px_#00000070]'
+    role='list'
+  >
     {
       links.map(({ url, label }) => (
-        <div role="listitem" class="[&>a]:block">
+        <div role='listitem' class='[&>a]:block'>
           <Link href={url} label={label}>
             {label}
           </Link>

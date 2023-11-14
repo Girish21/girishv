@@ -8,11 +8,12 @@ export interface Props extends HTMLAttributes<'li'> {}
 ---
 
 <li
-  aria-hidden="true"
+  aria-hidden='true'
   class={twMerge(
     'rounded-lg bg-gray-800 px-2 py-1 text-sm text-gray-400 transition-colors duration-150 ease-out group-hover:bg-gray-900 group-hover:text-gray-300',
     pClass
   )}
-  {...rest}>
-  <span class="whitespace-nowrap"><slot /></span>
+  {...rest}
+>
+  <span class='whitespace-nowrap'><slot /></span>
 </li>

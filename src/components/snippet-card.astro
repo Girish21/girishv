@@ -16,18 +16,19 @@ export interface Props {
 ---
 
 <li>
-  <ExternalLink class="group" href={`/snippets/${slug}`}>
+  <ExternalLink class='group' href={`/snippets/${slug}`}>
     <article
-      class="flex h-full flex-col items-start gap-4 rounded-lg border border-gray-700 p-4 transition-colors duration-150 ease-out group-hover:bg-gray-800 group-focus:bg-gray-800">
+      class='flex h-full flex-col items-start gap-4 rounded-lg border border-gray-700 p-4 transition-colors duration-150 ease-out group-hover:bg-gray-800 group-focus:bg-gray-800'
+    >
       <SubHeading>
         <InlineCodeFormatter text={title} />
       </SubHeading>
-      <P class="line-clamp-3">{description}</P>
-      <div class="flex flex-1 items-end">
+      <P class='line-clamp-3'>{description}</P>
+      <div class='flex flex-1 items-end'>
         {
           tags && tags.length > 0 && (
-            <ul class="flex flex-wrap gap-2">
-              <span class="sr-only">Tags: {tags.join(',')}</span>
+            <ul class='flex flex-wrap gap-2'>
+              <span class='sr-only'>Tags: {tags.join(',')}</span>
               {tags.slice(0, 2).map((tag) => (
                 <Tag>{tag}</Tag>
               ))}

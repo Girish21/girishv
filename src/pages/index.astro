@@ -21,28 +21,29 @@ const job = {
 }
 ---
 
-<Layout title="Girish V">
-  <Grid as="main" class="isolate">
+<Layout title='Girish V'>
+  <Grid as='main' class='isolate'>
     <CentralSpan
-      as="section"
-      class="flex min-h-[100svh] flex-col items-center justify-center gap-16 md:flex-row-reverse md:justify-between">
-      <div class="pt-8 md:flex-1 md:pt-0">
+      as='section'
+      class='flex min-h-[100svh] flex-col items-center justify-center gap-16 md:flex-row-reverse md:justify-between'
+    >
+      <div class='pt-8 md:flex-1 md:pt-0'>
         <Image
-          class="mx-auto h-60 w-60 max-w-none rounded-full object-cover object-top md:h-80 md:w-80"
+          class='mx-auto h-60 w-60 max-w-none rounded-full object-cover object-top md:h-80 md:w-80'
           width={500}
           height={500}
           src={Girish}
-          loading="eager"
-          alt="cover picture of girish.v"
+          loading='eager'
+          alt='cover picture of girish.v'
         />
       </div>
-      <div class="flex flex-col gap-4 md:flex-1">
+      <div class='flex flex-col gap-4 md:flex-1'>
         <Title>
-          hey, i'm <span class="text-gray-400 underline">girish!</span>
+          hey, i'm <span class='text-gray-400 underline'>girish!</span>
         </Title>
         <SubHeading>
           currently <ExternalLink href={job.url}>
-            <span class="text-gray-400">@{job.company}</span>
+            <span class='text-gray-400'>@{job.company}</span>
           </ExternalLink>
         </SubHeading>
         <P>
@@ -55,7 +56,7 @@ const job = {
         </P>
       </div>
     </CentralSpan>
-    <CentralSpan as="section" class="flex flex-col gap-4 pt-12">
+    <CentralSpan as='section' class='flex flex-col gap-4 pt-12'>
       <Heading>favourite technologies</Heading>
       <P>
         Welcome to the realm of my beloved technologies, a playground of digital

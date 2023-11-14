@@ -20,6 +20,7 @@ const pathname = url.pathname.replace(/\/$/, '') || '/'
   )}
   aria-label={`Go to ${label}`}
   {...props.href === pathname && { 'aria-current': 'page' }}
-  {...props}>
+  {...props}
+>
   <slot />
 </a>
