@@ -1,4 +1,3 @@
-import markdoc from '@astrojs/markdoc'
 import partytown from '@astrojs/partytown'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
@@ -11,12 +10,17 @@ export default defineConfig({
       applyBaseStyles: false
     }),
     sitemap(),
-    partytown(),
-    markdoc()
+    partytown()
   ],
   site: 'https://girishv.com',
   prefetch: {
     prefetchAll: false,
     defaultStrategy: 'viewport'
+  },
+  markdown: {
+    shikiConfig: {
+      theme: 'poimandres',
+      wrap: false
+    }
   }
 })
