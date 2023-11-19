@@ -1,0 +1,47 @@
+<slot />
+<div class='opacity-90 ring-gray-800 contrast-75 invert'></div>
+
+<script>
+  import copyIconUrl from '../assets/copy.svg'
+  import copyDoneIconUrl from '../assets/copy-done.svg'
+
+  const codeBlocks = Array.from(document.querySelectorAll('pre'))
+  const labels = {
+    copy: 'Copy',
+    copied: 'Copied!'
+  }
+
+  for (let codeBlock of codeBlocks) {
+    const copyButton = document.createElement('button')
+    copyButton.className =
+      'absolute top-0 right-0 p-2 text-sm z-10 bg-gray-800 rounded-bl-md transition-colors duration-150 ease-out hover:bg-gray-700 focus:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-gray-500'
+    copyButton.title = labels.copy
+
+    const label = document.createElement('span')
+    label.className = 'sr-only'
+    label.textContent = `${labels.copy} code block`
+    copyButton.appendChild(label)
+
+    const copyIcon = document.createElement('img')
+    copyIcon.src = copyIconUrl.src
+    copyIcon.alt = labels.copy
+    copyIcon.className = 'w-5 h-5 m-0 invert contrast-75 opacity-90'
+    copyButton.appendChild(copyIcon)
+
+    copyButton.addEventListener('click', () => {
+      navigator.clipboard.writeText(codeBlock.textContent!).then(() => {
+        copyButton.title = labels.copied
+        copyIcon.src = copyDoneIconUrl.src
+        copyIcon.alt = labels.copied
+
+        setTimeout(() => {
+          copyButton.title = labels.copy
+          copyIcon.src = copyIconUrl.src
+          copyIcon.alt = labels.copy
+        }, 2000)
+      })
+    })
+
+    codeBlock.parentNode?.insertBefore(copyButton, codeBlock)
+  }
+</script>
