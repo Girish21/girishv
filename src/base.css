@@ -9,3 +9,27 @@
 
   --background: #0b1228;
 }
+
+[data-rehype-pretty-code-fragment],
+[data-line],
+[data-highlighted-chars] {
+  position: relative;
+}
+
+[data-highlighted-line]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -16px;
+  width: 1px;
+  height: 100%;
+  background-color: theme('colors.green.600');
+}
+
+[data-highlighted-chars]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  @apply rounded border-b border-b-green-500 bg-green-500/30;
+  mix-blend-mode: plus-lighter;
+}
