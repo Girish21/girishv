@@ -4,6 +4,7 @@ import { getCollection, getEntry } from 'astro:content'
 import CentralSpan from '../../components/CentralSpan.astro'
 import Grid from '../../components/Grid.astro'
 import Layout from '../../layouts/Layout.astro'
+import PreClipboard from '../../layouts/pre-clipboard.astro'
 import SectionContent from '../../layouts/section-content.astro'
 
 export const getStaticPaths = (async () => {
@@ -33,7 +34,9 @@ const { Content } = await snippet.render()
         title={snippet.data.title}
       />
       <article class='prose prose-invert'>
-        <Content />
+        <PreClipboard>
+          <Content />
+        </PreClipboard>
       </article>
     </CentralSpan>
   </Grid>
