@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo'
 import CentralSpan from '../components/CentralSpan.astro'
 import GitHub, { ROLES } from '../components/GitHub.astro'
 import Grid from '../components/Grid.astro'
@@ -11,15 +12,38 @@ const GITHUB_REPOSITORIES = [
   { repo: 'Girish21/cf-url-shortener', role: ROLES.AUTHOR },
   { repo: 'Girish21/remix-cloudflare-workers-template', role: ROLES.AUTHOR }
 ] as const
+
+const meta = {
+  title: 'Projects',
+  description: 'Open Source Contributions and Side Projects Galore!',
+  site: `${Astro.site}${Astro.url.pathname.slice(1)}`
+}
 ---
 
-<Layout title='Projects'>
+<Layout>
+  <SEO
+    slot='head-meta'
+    title={meta.title}
+    description={meta.description}
+    openGraph={{
+      basic: {
+        image: '',
+        title: meta.title,
+        type: 'website',
+        url: meta.site
+      }
+    }}
+    twitter={{
+      creator: '@girishk21',
+      card: 'summary',
+      description: meta.description,
+      title: meta.title,
+      site: meta.site
+    }}
+  />
   <Grid as='main' class='isolate'>
     <CentralSpan as='section' class='pt-32'>
-      <SectionContent
-        description='Open Source Contributions and Side Projects Galore!'
-        title='Projects'
-      >
+      <SectionContent description={meta.description} title={meta.title}>
         <ul class='flex flex-col gap-4'>
           {GITHUB_REPOSITORIES.map((detail) => <GitHub {...detail} />)}
         </ul>

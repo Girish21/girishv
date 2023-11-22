@@ -1,10 +1,10 @@
 ---
 title: Focus on Mount
-description: A React hook that focuses an element on mount.
+description: Sometimes you want to focus an element when it mounts. A simple hook to do that.
 tags: ['react', 'hooks']
 published: true
-created_at: 11/20/2023
-updated_at: 11/20/2023
+createdAt: 11/20/2023
+updatedAt: 11/20/2023
 ---
 
 sometimes you want to focus an element when it mounts. this is a hook that does that.

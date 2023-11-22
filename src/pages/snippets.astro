@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo'
 import { getCollection } from 'astro:content'
 import CentralSpan from '../components/CentralSpan.astro'
 import Grid from '../components/Grid.astro'
@@ -11,15 +12,38 @@ const allSnippets = await getCollection(
   'snippets',
   ({ data }) => data.published
 )
+
+const meta = {
+  title: 'Snippets',
+  description: 'Unleashing Efficiency with My Go-To Snippets',
+  site: `${Astro.site}${Astro.url.pathname.slice(1)}`
+}
 ---
 
-<Layout title='Snippets'>
+<Layout>
+  <SEO
+    slot='head-meta'
+    title={meta.title}
+    description={meta.description}
+    openGraph={{
+      basic: {
+        image: '',
+        title: meta.title,
+        type: 'website',
+        url: meta.site
+      }
+    }}
+    twitter={{
+      creator: '@girishk21',
+      card: 'summary',
+      description: meta.description,
+      title: meta.title,
+      site: meta.site
+    }}
+  />
   <Grid as='main' class='isolate'>
     <CentralSpan as='section' class='pt-32'>
-      <SectionContent
-        description='Unleashing Efficiency with My Go-To Snippets'
-        title='Snippets'
-      >
+      <SectionContent description={meta.description} title={meta.title}>
         <SnippetList>
           {
             allSnippets.map((snippet) => (

@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro'
+import { SEO } from 'astro-seo'
 import { getCollection, getEntry } from 'astro:content'
 import CentralSpan from '../../components/CentralSpan.astro'
 import Grid from '../../components/Grid.astro'
@@ -26,7 +27,35 @@ const snippet = await getEntry('snippets', slug)
 const { Content } = await snippet.render()
 ---
 
-<Layout title='Snippets'>
+<Layout>
+  <SEO
+    slot='head-meta'
+    title={snippet.data.title}
+    description={snippet.data.description}
+    openGraph={{
+      basic: {
+        title: snippet.data.title,
+        type: 'article',
+        image: '',
+        url: `${Astro.site}${Astro.url.pathname.slice(1)}`
+      },
+      article: {
+        authors: ['Girish Kumar'],
+        tags: snippet.data.tags,
+        section: 'Technology & Computing',
+        modifiedTime: `${new Date(
+          snippet.data.updatedAt as unknown as string
+        ).toISOString()}`
+      }
+    }}
+    twitter={{
+      creator: '@girishk21',
+      title: snippet.data.title,
+      description: snippet.data.description,
+      site: `${Astro.site}${Astro.url.pathname.slice(1)}`,
+      card: 'summary'
+    }}
+  />
   <Grid as='main' class='isolate'>
     <CentralSpan as='section' class='flex flex-col gap-8 pt-32'>
       <SectionContent

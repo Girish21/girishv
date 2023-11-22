@@ -1,4 +1,5 @@
 ---
+import { SEO } from 'astro-seo'
 import { Image } from 'astro:assets'
 import Girish from '../assets/girish.jpeg'
 import CentralSpan from '../components/CentralSpan.astro'
@@ -19,9 +20,36 @@ const job = {
   start: '2020',
   end: 'present'
 }
+
+const meta = {
+  description:
+    "Welcome to my portfolio site, the magical kingdom where imagination meets code. It's a place where unicorns roam free, designs dance to their own beat, and websites become portals to extraordinary worlds. Get ready to be transported on a whimsical journey through the enchanted land of my creative endeavors!",
+  title: 'Girish V',
+  site: `${Astro.site}`
+}
 ---
 
-<Layout title='Girish V'>
+<Layout>
+  <SEO
+    slot='head-meta'
+    title={meta.title}
+    description={meta.description}
+    openGraph={{
+      basic: {
+        image: '',
+        title: meta.title,
+        type: 'website',
+        url: meta.site
+      }
+    }}
+    twitter={{
+      creator: '@girishk21',
+      card: 'summary',
+      description: meta.description,
+      title: meta.title,
+      site: meta.site
+    }}
+  />
   <Grid as='main' class='isolate'>
     <CentralSpan
       as='section'

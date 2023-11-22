@@ -6,8 +6,14 @@ const snippetCollection = defineCollection({
     title: z.string().min(1),
     description: z.string().min(1),
     tags: z.array(z.string()),
-    createdAt: z.date().optional(),
-    updatedAt: z.date().optional(),
+    createdAt: z
+      .string()
+      .optional()
+      .refine((d) => !d || !isNaN(Date.parse(d))),
+    updatedAt: z
+      .string()
+      .optional()
+      .refine((d) => !d || !isNaN(Date.parse(d))),
     published: z.boolean()
   })
 })
