@@ -19,10 +19,7 @@ export default defineConfig({
     partytown()
   ],
   site: 'https://girishv.com',
-  prefetch: {
-    prefetchAll: false,
-    defaultStrategy: 'viewport'
-  },
+  prefetch: true,
   markdown: {
     rehypePlugins: [['rehype-pretty-code', options]],
     syntaxHighlight: false,
