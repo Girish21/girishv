@@ -62,7 +62,9 @@ const { Content } = await snippet.render()
         description={snippet.data.description}
         title={snippet.data.title}
       />
-      <article class='prose prose-invert lowercase'>
+      <article
+        class='prose prose-invert [&>:is(h1,h2,h3,h4,h5,h6,p,a)]:lowercase'
+      >
         <PreClipboard>
           <Content />
         </PreClipboard>
