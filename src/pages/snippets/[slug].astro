@@ -58,16 +58,17 @@ const { Content } = await snippet.render()
   />
   <Grid as='main' class='isolate'>
     <CentralSpan as='section' class='flex flex-col gap-8 pt-32'>
-      <SectionContent
-        description={snippet.data.description}
-        title={snippet.data.title}
-      />
       <article
-        class='prose prose-invert [&>:is(h1,h2,h3,h4,h5,h6,p,a)]:lowercase'
+        class='prose prose-invert prose-pre:normal-case [&_:not(:where(pre,pre_*,:has(>_pre)))]:lowercase [&_:where(blockquote):not(:where([class~="not-prose"],[class~="not-prose"]_*))]:relative [&_:where(blockquote[data-type=note]):not(:where([class~="not-prose"],[class~="not-prose"]_*))]:border-l-blue-600 [&_:where(blockquote[data-type=warn]):not(:where([class~="not-prose"],[class~="not-prose"]_*))]:border-l-amber-400'
       >
-        <PreClipboard>
-          <Content />
-        </PreClipboard>
+        <SectionContent
+          description={snippet.data.description}
+          title={snippet.data.title}
+        >
+          <PreClipboard>
+            <Content />
+          </PreClipboard>
+        </SectionContent>
       </article>
     </CentralSpan>
   </Grid>

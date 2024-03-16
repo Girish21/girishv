@@ -1,0 +1,13 @@
+{
+  "$schema": "https://sly-cli.fly.dev/registry/config.json",
+  "libraries": [
+    {
+      "name": "tailwindlabs/heroicons",
+      "directory": "./src/assets",
+      "postinstall": [
+        "y"
+      ],
+      "transformers": []
+    }
+  ]
+}

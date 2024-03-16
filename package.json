@@ -32,6 +32,8 @@
     "prettier-config-standard": "^7.0.0",
     "prettier-plugin-astro": "^0.12.2",
     "prettier-plugin-tailwindcss": "^0.5.7",
-    "rehype-pretty-code": "^0.10.2"
+    "rehype-pretty-code": "^0.10.2",
+    "remark-gfm": "^4.0.0",
+    "unist-util-visit": "^5.0.0"
   }
 }
