@@ -1,0 +1,102 @@
+---
+import { SEO } from 'astro-seo'
+import { Image } from 'astro:assets'
+import CentralSpan from '../components/CentralSpan.astro'
+import Grid from '../components/Grid.astro'
+import Layout from '../layouts/Layout.astro'
+import SectionContent from '../layouts/section-content.astro'
+
+import Carlton from '../gallery/carlton.jpg'
+import Macow1 from '../gallery/macow-1.jpg'
+import Pelican from '../gallery/pelican.jpg'
+import Asiatique from '../gallery/asiatique.jpg'
+import Biriyani from '../gallery/biriyani.jpeg'
+import Dumpling from '../gallery/dumpling.jpeg'
+import type { ImageMetadata } from 'astro'
+
+const images = [
+  {
+    description: 'Mutton Biriyani and Hariyali Chicken',
+    title: 'Carlton',
+    src: Biriyani
+  },
+  {
+    description: 'Dumpling',
+    title: 'Dumpling',
+    src: Dumpling
+  },
+  { description: 'Carlton, Bangkok, Thailand', title: 'Carlton', src: Carlton },
+  {
+    description: 'Safari World, Bangkok, Thailand',
+    title: 'White Macow, Safari World',
+    src: Macow1
+  },
+  {
+    description: 'Safari World, Bangkok, Thailand',
+    title: 'Pelican, Safari World',
+    src: Pelican
+  },
+  {
+    description: 'Asiatique, Bangkok, Thailand',
+    title: 'Asiatique',
+    src: Asiatique
+  }
+] satisfies Array<{
+  src: ImageMetadata
+  description: string
+  title: string
+}>
+
+const meta = {
+  title: 'Gallery',
+  description:
+    "Step into my digital realm at Girish's Gallery, where pixels paint stories and imagination clicks into focus. Explore a curated collection of captivating photographs, meticulously edited to evoke emotions and ignite curiosity. Whether you're a tech enthusiast or a casual admirer, immerse yourself in the fusion of art and technology. Welcome to my world, where every click captures a moment and every edit unveils a new perspective.",
+  site: `${Astro.site}${Astro.url.pathname.slice(1)}`
+}
+---
+
+<Layout>
+  <SEO
+    slot='head-meta'
+    title={meta.title}
+    description={meta.description}
+    openGraph={{
+      basic: {
+        image: '',
+        title: meta.title,
+        type: 'website',
+        url: meta.site
+      }
+    }}
+    twitter={{
+      creator: '@girishk21',
+      card: 'summary',
+      description: meta.description,
+      title: meta.title,
+      site: meta.site
+    }}
+  />
+  <Grid as='main' class='isolate'>
+    <CentralSpan as='section' class='pt-32'>
+      <SectionContent
+        contentClass='grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-4'
+        description={meta.description}
+        title={meta.title}
+      >
+        {
+          images.map((image) => (
+            <div class='overflow-hidden rounded-lg'>
+              <Image
+                src={image.src}
+                alt={image.description}
+                class='max-h-[300px] w-full object-cover transition-all duration-300 ease-out hover:scale-110 hover:contrast-125'
+                widths={[300, 600]}
+                height={300}
+              />
+            </div>
+          ))
+        }
+      </SectionContent>
+    </CentralSpan>
+  </Grid>
+</Layout>

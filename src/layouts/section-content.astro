@@ -2,11 +2,12 @@
 import Heading from '../components/Heading.astro'
 import P from '../components/P.astro'
 
-const { description, title } = Astro.props
+const { contentClass, description, title } = Astro.props
 
 export interface Props {
   description: string
   title: string
+  contentClass?: string
 }
 ---
 
@@ -15,7 +16,7 @@ export interface Props {
     <Heading as='h1'>{title}</Heading>
     <P>{description}</P>
   </div>
-  <div>
+  <div class={contentClass}>
     <slot />
   </div>
 </div>
